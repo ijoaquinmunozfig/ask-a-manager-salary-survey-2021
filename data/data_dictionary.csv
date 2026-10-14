@@ -1,0 +1,25 @@
+column,dtype,description,cleaning_applied
+Timestamp,str,,
+age,str,Age range of the respondent,Original categories kept
+job_title,str,Job title as reported by the respondent,Whitespace and capitalization standardized; common variants merged
+additional_comp_local,float64,"Bonuses or overtime in an average year, original currency",Null means the question was left blank
+state,str,US state of work,'Non-US' if working outside the US; 'Unknown' if US without a state; Washington D.C. variants unified; categories with 100 rows or fewer grouped as 'Other'
+city,str,City of work,Variants unified with a replacement dictionary; non-answers set to null
+exp_overall,str,Total years of professional experience,Range format standardized
+exp_field,str,Years of professional experience in the respondent's field,Range format standardized
+education,str,Highest level of education completed,'Some college' renamed to 'College unfinished'
+gender,str,Gender reported by the respondent,'Prefer not to answer' merged into 'Other or prefer not to answer'
+race,str,Race/ethnicity reported by the respondent,Multi-select combinations including 'White' simplified; small categories grouped as 'Other'
+country,str,Country of work,"Standardized with pycountry, manual aliases and fuzzy matching; categories with 100 rows or fewer grouped as 'Other'"
+currency_original,str,Currency in which the salary was reported,'AUD/NZD' split into AUD or NZD using the country
+salary_local,int64,Annual salary in the original currency,Converted from text to number
+job_family,str,"Job function group (e.g. Software & IT, Education & Library)",Derived with keyword rules on job_title
+salary_usd,float64,Annual salary converted to USD,Converted with the ECB rate (Frankfurter API) on the response date; outliers filtered
+additional_comp_usd,float64,Additional compensation converted to USD,Outliers set to null
+total_comp_usd,float64,salary_usd + additional_comp_usd (nulls treated as 0),Calculated
+salary_rescaled,bool,"True if the original salary looked like it was in thousands and was multiplied by 1,000",Flag kept for transparency
+industry,str,Industry of the employer,Categories with 100 rows or fewer grouped as 'Other'
+age_rank,int64,Sort order for age,Integer used for 'Sort by column' in Power BI
+exp_overall_rank,int64,Sort order for exp_overall,Integer used for 'Sort by column' in Power BI
+exp_field_rank,int64,Sort order for exp_field,Integer used for 'Sort by column' in Power BI
+education_rank,float64,Sort order for education,Integer used for 'Sort by column' in Power BI
