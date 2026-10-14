@@ -94,4 +94,4 @@ ask-a-manager-salary-survey-2021/
 
 ## Author
 
-[Your name] | [LinkedIn](https://www.linkedin.com/) | [GitHub](https://github.com/)
+[Joaquín Ignacio Muñoz Figueroa] | [LinkedIn](https://www.linkedin.com/) | [GitHub](https://github.com/)
