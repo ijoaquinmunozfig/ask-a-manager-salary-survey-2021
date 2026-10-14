@@ -37,9 +37,7 @@ Median of salary plus additional compensation (bonuses, overtime). Missing addit
             COUNTROWS(ask_a_manager_clean),
             ask_a_manager_clean[additional_comp_usd] > 0
             ),
-            COUNTROWS(
-                ask_a_manager_clean
-            )
+            COUNTROWS(ask_a_manager_clean)
     )
 ```
 Share of respondents who report additional compensation above 0.
