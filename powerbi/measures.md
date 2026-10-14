@@ -7,23 +7,26 @@ The table is named `ask_a_manager_clean`. Measures live in a separate table (`Me
 ## Core measures (all pages)
 
 ```dax
-TotalResponses = COUNTROWS(
-    ask_a_manager_clean
-)
+TotalResponses =
+    COUNTROWS(
+        ask_a_manager_clean
+    )
 ```
 Number of respondents in the current filter context.
 
 ```dax
-MedianSalaryUSD = MEDIAN(
-    ask_a_manager_clean[salary_usd]
-)
+MedianSalaryUSD =
+    MEDIAN(
+        ask_a_manager_clean[salary_usd]
+    )
 ```
 Median annual base salary in USD.
 
 ```dax
-MedianTotalCompensationUSD = MEDIAN(
-    ask_a_manager_clean[total_comp_usd]
-)
+MedianTotalCompensationUSD =
+    MEDIAN(
+        ask_a_manager_clean[total_comp_usd]
+    )
 ```
 Median of salary plus additional compensation (bonuses, overtime). Missing additional compensation counts as 0.
 
@@ -42,7 +45,10 @@ Median of salary plus additional compensation (bonuses, overtime). Missing addit
 Share of respondents who report additional compensation above 0.
 
 ```dax
-MedianSalary(n>=30) = IF([Responses] >= 30, [Median salary USD])
+MedianSalary(n>=30) = 
+    IF([Responses] >= 30,
+    [Median salary USD]
+    )
 ```
 Hides medians backed by fewer than 30 responses. Used in the equity charts.
 
@@ -50,10 +56,10 @@ Hides medians backed by fewer than 30 responses. Used in the equity charts.
 
 ```dax
 TotalCountries =
-CALCULATE(
-    DISTINCTCOUNT(ask_a_manager_clean[country]),
-    ask_a_manager_clean[country] <> "Other"
-)
+    CALCULATE(
+        DISTINCTCOUNT(ask_a_manager_clean[country]),
+        ask_a_manager_clean[country] <> "Other"
+    )
 ```
 Number of countries represented, excluding the grouped `Other` category.
 
@@ -61,22 +67,22 @@ Number of countries represented, excluding the grouped `Other` category.
 
 ```dax
 TopPaidJobFamily = 
-VAR tbl =
-    ADDCOLUMNS(
-        FILTER(
-            VALUES(ask_a_manager_clean[job_family]),
+    VAR tbl =
+        ADDCOLUMNS(
+            FILTER(
+                VALUES(ask_a_manager_clean[job_family]),
+                CALCULATE(
+                    COUNTROWS(ask_a_manager_clean)
+                    ) >= 30),
+            "@med",
             CALCULATE(
-                COUNTROWS(ask_a_manager_clean)
-                ) >= 30),
-        "@med",
-        CALCULATE(
-            MEDIAN(ask_a_manager_clean[salary_usd])
+                MEDIAN(ask_a_manager_clean[salary_usd])
+            )
         )
-    )
-RETURN
-    MAXX(
-        TOPN(1, tbl, [@med], DESC),
-        ask_a_manager_clean[job_family])
+    RETURN
+        MAXX(
+            TOPN(1, tbl, [@med], DESC),
+            ask_a_manager_clean[job_family])
 ```
 Job family with the highest median salary, among families with at least 30 responses.
 
@@ -163,13 +169,13 @@ US state with the highest median salary, excluding non-US, unknown and grouped s
 
 ```dax
 Salary bin sort = 
-MIN(
-    FLOOR(
-        ask_a_manager_clean[salary_usd],
-        10000
-        ),
-        200000
-    )
+    MIN(
+        FLOOR(
+            ask_a_manager_clean[salary_usd],
+            10000
+            ),
+            200000
+        )
 ```
 Lower bound of each 10,000 USD range. Everything above 200,000 is grouped into one bin.
 
