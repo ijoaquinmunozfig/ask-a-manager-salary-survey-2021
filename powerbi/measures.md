@@ -188,7 +188,9 @@ Salary range =
         &
         "-"
         &
-        FORMAT((ask_a_manager_clean[Salary bin sort] + 10000) / 1000, "0") & "k"
+        FORMAT((ask_a_manager_clean[Salary bin sort] + 10000) / 1000, "0")
+        &
+        "k"
     )
 ```
 Label shown on the axis (for example `70-80k`). Sorted by `Salary bin sort`.
