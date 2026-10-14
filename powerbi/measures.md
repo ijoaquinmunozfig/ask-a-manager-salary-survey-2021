@@ -175,7 +175,7 @@ Salary bin sort =
             10000
             ),
             200000
-        )
+    )
 ```
 Lower bound of each 10,000 USD range. Everything above 200,000 is grouped into one bin.
 
