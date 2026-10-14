@@ -44,8 +44,9 @@ Share of respondents who report additional compensation above 0.
 
 ```dax
 MedianSalary(n>=30) = 
-    IF([Responses] >= 30,
-    [Median salary USD]
+    IF(
+        [Responses] >= 30,
+        [MedianSalaryUSD]
     )
 ```
 Hides medians backed by fewer than 30 responses. Used in the equity charts.
