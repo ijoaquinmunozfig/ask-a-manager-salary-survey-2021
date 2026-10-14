@@ -72,7 +72,8 @@ TopPaidJobFamily =
                 VALUES(ask_a_manager_clean[job_family]),
                 CALCULATE(
                     COUNTROWS(ask_a_manager_clean)
-                    ) >= 30),
+                ) >= 30
+            ),
             "@med",
             CALCULATE(
                 MEDIAN(ask_a_manager_clean[salary_usd])
