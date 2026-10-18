@@ -6,6 +6,7 @@
 An end-to-end project: a messy, self-reported salary survey cleaned in Python (pandas) and explored in a Power BI dashboard.
 
 Dashboard images:
+
 [Dashboard: Cover overview](images/Cover.jpg)
 
 [Dashboard: Executive Summary overview](images/Executive_Summary.jpg)
