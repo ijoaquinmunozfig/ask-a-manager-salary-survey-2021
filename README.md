@@ -5,7 +5,7 @@
 
 An end-to-end project: a messy, self-reported salary survey cleaned in Python (pandas) and explored in a Power BI dashboard.
 
-![Dashboard overview](images/overview)
+![Dashboard overview](images/Ask A Manager Salary Survey (2021)_page-0001.jpg)
 
 ## At a glance
 
