@@ -7,17 +7,17 @@ An end-to-end project: a messy, self-reported salary survey cleaned in Python (p
 
 Dashboard images:
 
-[Dashboard: Cover overview](images/Cover.jpg)
+[Cover overview](images/Cover.jpg)
 
-[Dashboard: Executive Summary overview](images/Executive_Summary.jpg)
+[Executive Summary overview](images/Executive_Summary.jpg)
 
-[Dashboard: Role & Industry overview](images/Role_&_Industry.jpg)
+[Role & Industry overview](images/Role_&_Industry.jpg)
 
-[Dashboard: Career overview](images/Career.jpg)
+[Career overview](images/Career.jpg)
 
-[Dashboard: Equity overview](images/Equity.jpg)
+[Equity overview](images/Equity.jpg)
 
-[Dashboard: Geography overview](images/Geography.jpg)
+[Geography overview](images/Geography.jpg)
 
 ## At a glance
 
